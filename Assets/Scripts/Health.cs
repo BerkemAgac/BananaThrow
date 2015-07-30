@@ -21,11 +21,21 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //healthBar.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
 
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
 	}
+
+    public float getHealth()
+    {
+        return currentHealth;
+    }
+
+    public void setHealth(float health)
+    {
+        currentHealth = health;
+    }
+
+    public void reduceHealth(float amount)
+    {
+        currentHealth -= amount;
+    }
 }

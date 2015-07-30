@@ -26,8 +26,14 @@ public class AI : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        h.currentHealth -= coll.gameObject.GetComponent<Damage>().getDamage();
-		animatorAC.SetTrigger ("Happy");
+        h.reduceHealth(coll.gameObject.GetComponent<Damage>().getDamage());
+
+        if (h.getHealth() <= 0)
+        {
+			ScoreManager.score += score;
+            Destroy(gameObject);
+        }
+
         Destroy(coll.gameObject);
     }
 
