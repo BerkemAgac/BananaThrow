@@ -32,7 +32,6 @@ public class AI : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("TRIGGER");
 		if (other.tag == "Ground") {
 			isGround = true;
 			animatorAC.SetBool ("IsGround", true);
