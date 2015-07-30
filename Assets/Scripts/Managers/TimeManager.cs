@@ -13,10 +13,12 @@ public class TimeManager : MonoBehaviour {
 		text = GetComponent <Text> ();
 	}
 	
-	
 	void Update ()
 	{
 		int timeRemain = secondsToEnd - (int)Time.time;
 		text.text = timeRemain.ToString();
+		if (timeRemain <= 0) {
+			GameController.GameOver();
+		}
 	}
 }
